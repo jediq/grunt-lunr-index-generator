@@ -31,10 +31,8 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     lunr_index_generator: {
         test: {
-          options: {
-            src: ['test/fixtures/docs'],
-            dest: 'test/fixtures/lunr.json'
-          }
+            src: ['test/fixtures/docs/*.md'],
+            dest: 'tmp/lunr.json'
         }
     },
 
@@ -55,7 +53,7 @@ module.exports = function(grunt) {
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'lunr_index_generator', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'lunr_index_generator:test', 'nodeunit']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);

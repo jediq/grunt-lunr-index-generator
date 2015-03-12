@@ -8,14 +8,41 @@
 
 'use strict';
 
-module.exports = function(grunt) {
-  grunt.log.ok('Processing plugin.');
+var lunr = require('./lib/lunr.js');
 
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
+
+module.exports = function(grunt) {
 
   grunt.registerMultiTask('lunr_index_generator', 'The best Grunt plugin ever.', function() {
-    grunt.log.ok('go go go.');
+
+
+    var idx = lunr(function () {
+      this.field('title', { boost: 10 })
+      this.field('body')
+    })
+
+    this.files.forEach(function (fileGroup) {
+
+      fileGroup.src.forEach(function(file) {
+
+
+        grunt.log.ok('loading : ' + file);
+
+        var doc = {
+          title:file,
+          body:grunt.file.read(file)
+        };
+        idx.add(doc);
+
+      });
+
+      var asJson = JSON.stringify(idx.toJSON());
+      grunt.file.write(fileGroup.dest, asJson);
+
+
+    });
+
+
   });
 
 };
