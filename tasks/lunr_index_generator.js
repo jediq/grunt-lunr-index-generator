@@ -17,7 +17,10 @@ module.exports = function(grunt) {
 
 
     var idx = lunr(function () {
-      this.field('title', { boost: 10 })
+      this.field('name', { boost: 10 })
+      this.field('h1', { boost: 8 })
+      this.field('h2', { boost: 5 })
+      this.field('h3', { boost: 3 })
       this.field('body')
     })
 
@@ -25,12 +28,30 @@ module.exports = function(grunt) {
 
       fileGroup.src.forEach(function(file) {
 
+        grunt.log.write('Parsing : ' + file);
 
-        grunt.log.ok('loading : ' + file);
+        var body = grunt.file.read(file);
+        var h1s = [];
+        var h2s = [];
+        var h3s = [];
+
+        body.split('\n').forEach(function(line) {
+          if (line.lastIndexOf('###', 0) === 0) {
+            h3s.push(line);
+          } else if (line.lastIndexOf('##', 0) === 0) {
+            h2s.push(line);
+          } else if (line.lastIndexOf('#', 0) === 0) {
+            h1s.push(line);
+          }
+
+        });
 
         var doc = {
-          title:file,
-          body:grunt.file.read(file)
+          name:file,
+          h1:h1s.join(','),
+          h2:h2s.join(','),
+          h3:h3s.join(','),
+          body:body
         };
         idx.add(doc);
 
