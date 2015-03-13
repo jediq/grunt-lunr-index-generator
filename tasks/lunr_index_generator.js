@@ -8,7 +8,7 @@
 
 'use strict';
 
-var lunr = require('./lib/lunr.js');
+var lunr = require('lunr');
 
 
 module.exports = function(grunt) {
