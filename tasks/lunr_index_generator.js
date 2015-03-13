@@ -17,12 +17,12 @@ module.exports = function(grunt) {
 
 
     var idx = lunr(function () {
-      this.field('name', { boost: 10 })
-      this.field('h1', { boost: 8 })
-      this.field('h2', { boost: 5 })
-      this.field('h3', { boost: 3 })
-      this.field('body')
-    })
+      this.field('name', { boost: 10 });
+      this.field('h1', { boost: 8 });
+      this.field('h2', { boost: 5 });
+      this.field('h3', { boost: 3 });
+      this.field('body');
+    });
 
     this.files.forEach(function (fileGroup) {
 
