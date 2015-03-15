@@ -1,6 +1,6 @@
 # grunt-lunr-index-generator
 
-> The best Grunt plugin ever.
+> A Grunt plugin to generate a lunr.js index file from markdown files.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -32,22 +32,24 @@ grunt.initConfig({
       // Target-specific file lists and/or options go here.
     },
   },
+      lunr_index_generator: {
+          your_target: {
+              src: ['docs/*.md'],
+              dest: 'dist/lunr.json'
+          }
+      },
 });
 ```
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### src
+The source location(s) of the markdown files.
 
-A string value that is used to do something with whatever.
+#### dest
+The destination to write the lunr index.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
 
-A string value that is used to do something else with whatever else.
 
 ### Usage Examples
 
@@ -65,22 +67,6 @@ grunt.initConfig({
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  lunr_index_generator: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).

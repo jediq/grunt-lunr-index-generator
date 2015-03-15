@@ -13,7 +13,7 @@ var lunr = require('lunr');
 
 module.exports = function(grunt) {
 
-  grunt.registerMultiTask('lunr_index_generator', 'The best Grunt plugin ever.', function() {
+  grunt.registerMultiTask('lunr_index_generator', 'A Grunt plugin to generate a lunr.js index files from markdown files.', function() {
 
 
     var idx = lunr(function () {
