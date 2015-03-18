@@ -13,7 +13,9 @@ var lunr = require('lunr');
 
 module.exports = function(grunt) {
 
-  grunt.registerMultiTask('lunr_index_generator', 'A Grunt plugin to generate a lunr.js index files from markdown files.', function() {
+  grunt.registerMultiTask('lunr_index_generator',
+      'A Grunt plugin to generate a lunr.js index files from markdown files.',
+      function() {
 
 
     var idx = lunr(function () {
@@ -47,6 +49,7 @@ module.exports = function(grunt) {
         });
 
         var doc = {
+          id:file,
           name:file,
           h1:h1s.join(','),
           h2:h2s.join(','),
