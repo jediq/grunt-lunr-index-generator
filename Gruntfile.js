@@ -31,7 +31,7 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     lunr_index_generator: {
         test: {
-            src: ['test/fixtures/*.md'],
+            src: ['test/fixtures/**/*.md', 'test/fixtures/**/*.markdown', 'test/fixtures/**/*.html'],
             dest: 'tmp/lunr.json'
         }
     },
