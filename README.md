@@ -1,6 +1,6 @@
 # grunt-lunr-index-generator
 
-> A Grunt plugin to generate a [lunr.js](http://lunrjs.com/) index file from markdown files.
+> A Grunt plugin to generate a [lunr.js](http://lunrjs.com/) index file from markdown and html files.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
@@ -34,7 +34,7 @@ grunt.initConfig({
   },
       lunr_index_generator: {
           your_target: {
-              src: ['docs/*.md'],
+              src: ['docs/*.md', 'docs/*.html'],
               dest: 'dist/lunr.json'
           }
       },
@@ -44,7 +44,7 @@ grunt.initConfig({
 ### Options
 
 #### src
-The source location(s) of the markdown files.
+The source location(s) of the markdown and/or html files.
 
 #### dest
 The destination to write the lunr index.
@@ -56,3 +56,4 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 * 0.1.0 Initial Release
 * 0.1.1 Documentation Changes
 * 0.1.2 Git root change
+* 0.1.3 Added HTML file parsing
