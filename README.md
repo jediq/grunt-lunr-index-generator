@@ -1,5 +1,7 @@
 # grunt-lunr-index-generator
 
+[![Build Status](https://travis-ci.org/jediq/grunt-lunr-index-generator.svg?branch=master)](https://travis-ci.org/jediq/grunt-lunr-index-generator)
+
 > A Grunt plugin to generate a [lunr.js](http://lunrjs.com/) index file from markdown and html files.
 
 ## Getting Started
