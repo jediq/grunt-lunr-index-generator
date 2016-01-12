@@ -28,7 +28,7 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "lunr": "~0.5.7",
+    "lunr": "~0.6.0",
     "cheerio": "~0.19.0"
   },
   "devDependencies": {
